@@ -8,7 +8,7 @@ HTTP请求头中假如有Local头域则重定向到IP127.0.0.1，端口为该头
 安装:  
 ~~~~~~~
   
-    curl -k -O https://coding.net/u/915445800/p/squid_cloud/git/raw/master/squid.sh && $SHELL squid.sh
+    curl -kO https://raw.githubusercontent.com/mmmdbybyd/squid_cloud/master/squid.sh && $SHELL squid.sh
 ~~~~~~~  
     
 以下为官方说明  
