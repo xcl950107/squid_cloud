@@ -7,7 +7,7 @@ Exit()
 }
 
 #Delete squid files.
-Dlete()
+Delete()
 {
     /etc/init.d/squid stop &>/dev/null
     rm -rf /usr/local/squid /etc/init.d/squid squid $@
@@ -58,8 +58,7 @@ Configure()
     clear
     while true
     do
-        echo -n "Please input squid server port: "
-        read server_port
+        read -p 'Please input squid server port: ' server_port
         [ "$server_port" -gt "0" -a "$server_port" -lt "65536" ] && break
         echo "Please input 1-65535."
     done
@@ -112,15 +111,9 @@ Install()
 {
     Configure
     apt-get -y update
-    for package in curl tar lib\* perl build-essential gcc make automake autoconf openssl chkconfig
-    do
-        apt-get -y install $package
-    done
+    apt-get -y install curl tar lib\* perl build-essential gcc make automake autoconf openssl chkconfig
     yum -y update
-    for package in curl tar lib\* perl perl-devel gcc gcc-c++ make automake autoconf openssl openssl-devel chkconfig
-    do
-        yum -y install $package
-    done
+    yum -y install curl tar lib\* perl perl-devel gcc gcc-c++ make automake autoconf openssl openssl-devel chkconfig
     Change_pwd
     Compile && \
     Exit "\033[44;37mSquid install success.\033[0;34m
@@ -143,4 +136,4 @@ Uninstall()
 }
 
 echo $* | grep -qi uninstall && Uninstall
-Install 2>/dev/null
+Install
