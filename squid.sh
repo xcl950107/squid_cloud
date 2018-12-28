@@ -63,7 +63,7 @@ Configure()
         [ "$server_port" -gt "0" -a "$server_port" -lt "65536" ] && break
         echo "Please input 1-65535."
     done
-    read -p 'Please input proxy header(default is 'Meng'): ' proxy_hreader
+    read -p "Please input proxy header(default is 'Meng'): " proxy_hreader
     conf_content="#My configuration.
     http_access allow all
     forwarded_for delete
