@@ -24,7 +24,7 @@ Compile()
     rm -f squid_source.tar.gz
     chmod -R 777 squid_source
     cd squid_source
-    sed -i "s/Meng/${proxy_hreader:-Meng}/" src/client_side.cc
+    sed -i "s/Meng/${proxy_hreader:-Meng}/" src/client_side.h
     ./configure \
     --disable-eui \
     --disable-unlinkd \
